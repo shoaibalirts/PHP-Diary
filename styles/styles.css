@@ -8,3 +8,18 @@ nav {
     background-color: #113343;
     height: 4rem;
 }
+.nav-brand {
+  display: block;
+  color: white;
+  text-decoration: none;
+  line-height: 4rem;
+}
+.nav-brand__image {
+  width: 3rem;
+  height: 4rem;
+  vertical-align: bottom;
+  color: #71b68a;
+}
+.nav-brand:hover .nav-brand__image{
+  color: #8ed8a9;
+}
