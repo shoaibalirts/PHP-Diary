@@ -34,6 +34,7 @@ html {
   padding: 0 1rem;
   line-height: 2.5rem;
   border-radius: 0.5rem;
+  /* text-transform: uppercase; */
 }
 .button:hover {
   background-color: #d95032;
@@ -44,4 +45,19 @@ html {
   position: relative;
   top: 0.4rem;
   margin-right: 0.4rem;
+}
+
+.main-heading {
+  color: #113343;
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
+.card {
+  background-color: #F3F4F5;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0, 0, 0.5);
 }
