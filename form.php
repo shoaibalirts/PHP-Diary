@@ -11,7 +11,7 @@
     <nav class="nav">
       <div class="container">
         <div class="nav__layout">
-          <a href="index.html" class="nav-brand">
+          <a href="index.php" class="nav-brand">
             <svg
               class="nav-brand__image"
               viewBox="0 0 60.7863869853 60.7863869853"
@@ -25,7 +25,7 @@
             </svg>
             MY JOURNAL
           </a>
-          <a href="form.html" class="button">
+          <a href="form.php" class="button">
             <svg class="button__icon" viewBox="0 0 44.4901230052 44.4901230053">
               <g
                 style="
