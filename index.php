@@ -1,25 +1,14 @@
 <?php
 
-include __DIR__ . '/inc/db-connect.inc.php';
-include __DIR__ . '/inc/functions.inc.php';
+require __DIR__ . '/inc/db-connect.inc.php';
+require __DIR__ . '/inc/functions.inc.php';
 
 $query = 'SELECT * FROM `entries` ';
 $stmt = $pdo->prepare($query);
 
 $stmt->execute();
-$posts_arr = [];
-
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  extract($row);
-  $row_item = [
-    'id' => $id,
-    'title' => $title,
-    'message' => $message,
-    'date' => $date
-  ];
-  array_push($posts_arr, $row_item);
-}
-// var_dump($posts_arr);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($results);
 
 ?>
 
@@ -85,7 +74,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   <main class="main">
     <div class="container">
       <h1 class="main-heading">Entries</h1>
-      <?php foreach ($posts_arr AS $postItem) { ?>
+      <?php foreach ($results AS $result) { ?>
         <div class="card">
           <div class="card__image-container">
             <img
@@ -95,9 +84,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           </div>
 
           <div class="card__desc-container">
-            <div class="card__desc-time">Week1</div>
-            <h2 class="card__heading"><?php echo $postItem['title'] ?></h2>
-            <p class="card__paragraph"><?php echo $postItem['message'] ?></p>
+            <div class="card__desc-time"><?php echo e($result['date']) ?></div>
+            <h2 class="card__heading"><?php echo e($result['title']) ?></h2>
+            <p class="card__paragraph"><?php echo nl2br(e($result['message'])) ?></p>
           </div>
         </div>
       <?php } ?>
