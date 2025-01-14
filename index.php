@@ -1,8 +1,8 @@
 <?php require __DIR__ . '/views/header.view.php' ?>
 <?php
 
-require __DIR__ . '/../inc/db-connect.inc.php';
-require __DIR__ . '/../inc/functions.inc.php';
+require __DIR__ . '/inc/db-connect.inc.php';
+require __DIR__ . '/inc/functions.inc.php';
 
 $query = 'SELECT * FROM `entries` ';
 $stmt = $pdo->prepare($query);
