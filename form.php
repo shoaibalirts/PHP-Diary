@@ -23,14 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($titleError === false && $dateError === false && $messageError === false) { // means no error 
     // code to save the user in the DB
     header('Location:thankyou.php');
+    die();
   }
 }
 
 
 ?>
+
 <?php require __DIR__ . '/views/header.view.php' ?>
 <h1 class="main-heading">New Entry</h1>
-<form method="POST" action="form.php">
+<form method="POST" action="thankyou.php">
   <div class="form-group">
     <label class="form-group__label" for="title">Title:</label>
     <input
