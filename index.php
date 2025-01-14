@@ -44,19 +44,19 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <ul class="pagination">
   <li class="pagination__li">
-    <a href="#" class="pagination__link">⏵︎</a>
-  </li>
-  <li class="pagination__li">
-    <a href="#" class="pagination__link pagination__li--active">1</a>
-  </li>
-  <li class="pagination__li">
-    <a href="#" class="pagination__link pagination__li--active">2</a>
-  </li>
-  <li class="pagination__li">
-    <a href="#" class="pagination__link pagination__li--active">3</a>
-  </li>
-  <li class="pagination__li">
     <a href="#" class="pagination__link">⏴︎</a>
+  </li>
+  <li class="pagination__li">
+    <a href="index.php?page=1" class="pagination__link pagination__li--active">1</a>
+  </li>
+  <li class="pagination__li">
+    <a href="index.php?page=2" class="pagination__link pagination__li--active">2</a>
+  </li>
+  <li class="pagination__li">
+    <a href="index.php?page=3" class="pagination__link pagination__li--active">3</a>
+  </li>
+  <li class="pagination__li">
+    <a href="index.php?page=4" class="pagination__link">⏵︎</a>
   </li>
 </ul>
 <?php require __DIR__ . '/views/footer.view.php' ?>
