@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+// var_dump($_POST);
 require __DIR__ . '/inc/db-connect.inc.php';
 require __DIR__ . '/inc/functions.inc.php';
 
@@ -22,7 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if ($titleError === false && $dateError === false && $messageError === false) { // means no error 
     // code to save the user in the DB
-    header('Location:thankyou.php');
+    // header('Location:thankyou.php');
+    // die();
+
+    $title = $_POST['title'];
+    $date = $_POST['date'];
+    $message = $_POST['message'];
+    // require __DIR__ . '/inc/db-connect.inc.php';
+    // require __DIR__ . '/inc/functions.inc.php';
+
+    $query = "INSERT INTO `entries` (`title`, `message`, `date`) VALUES (:title, :message, :date)";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindValue('title', $title);
+    $stmt->bindValue('message', $message);
+    $stmt->bindValue('date', $date);
+    $stmt->execute();
+    echo '<h1>Data is saved to our system</h1>';
+    echo '<a href="index.php">Continue to the diary!</a>';
     die();
   }
 }
@@ -32,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php require __DIR__ . '/views/header.view.php' ?>
 <h1 class="main-heading">New Entry</h1>
-<form method="POST" action="thankyou.php">
+<form method="POST" action="form.php">
   <div class="form-group">
     <label class="form-group__label" for="title">Title:</label>
     <input

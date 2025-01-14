@@ -4,8 +4,20 @@
 require __DIR__ . '/inc/db-connect.inc.php';
 require __DIR__ . '/inc/functions.inc.php';
 
-$query = 'SELECT * FROM `entries` ';
+$perPage = 2; // it defines how many entries to be required on single page
+$page = (int) ($_GET['page'] ?? 1); // if url parameter page does not exist then $page=1
+
+// $page = 1; // $offset=>0
+// $page = 2; // $offset=>$perPage
+// $page = 3; // $offset=>$perPage*2
+
+$offset = ($page - 1) * $perPage;
+
+$query = 'SELECT * FROM `entries` ORDER BY `date` DESC, `id` DESC LIMIT :perPage OFFSET :offset';
+
 $stmt = $pdo->prepare($query);
+$stmt->bindValue('perPage', (int) $perPage, PDO::PARAM_INT);
+$stmt->bindValue('offset', (int) $offset, PDO::PARAM_INT);
 
 $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
